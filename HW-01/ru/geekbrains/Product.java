@@ -1,5 +1,4 @@
 package ru.geekbrains;
-import java.util.ArrayList;
 
 class Product {
     private String name;

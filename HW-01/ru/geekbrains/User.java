@@ -1,5 +1,4 @@
 package ru.geekbrains;
-import java.util.ArrayList;
 
 public class User {
     private String login;
@@ -12,15 +11,15 @@ public class User {
         this.basket = new Basket();
     }
 
-    public String getLogin(){
+    public String getLogin() {
         return login;
     }
- 
-    public String getPassword(){
+
+    public String getPassword() {
         return password;
     }
 
-    public Basket getBasket(){
+    public Basket getBasket() {
         return basket;
     }
 }

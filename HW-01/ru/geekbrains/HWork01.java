@@ -1,4 +1,5 @@
 package ru.geekbrains;
+
 import java.util.ArrayList;
 
 public class HWork01 {
@@ -14,17 +15,12 @@ public class HWork01 {
         category2.addProducts(new Product("Product 5", 15.99, 5.5));
         category2.addProducts(new Product("Product 6", 32.99, 4.5));
 
-        // Category category2 = new Category("Category 2", new Product[] { product3, product4 });
-        Category[] Categorys = new Category[] {category1, category2};
-
-        // Employee[] employees = new Employee[10];
-        // for (int i = 0; i < employees.length; i++)
-        //     employees[i] = generateEmployee();
+        Category[] Categorys = new Category[] { category1, category2 };
         System.out.println(" Товары до покупки");
-        for (Category category : Categorys){
+        for (Category category : Categorys) {
             System.out.println(category.getName());
             ArrayList<Product> products = category.getProducts();
-            for(Product product:products ) {
+            for (Product product : products) {
                 System.out.println(product);
             }
         }
@@ -42,21 +38,21 @@ public class HWork01 {
         category1.getProducts().remove(1);
         category2.getProducts().remove(1);
 
-        User[] Users = new User[] {user1, user2};
+        User[] Users = new User[] { user1, user2 };
 
-        for (User user : Users){
+        for (User user : Users) {
             System.out.println(user.getLogin());
             ArrayList<Product> userProducts = user.getBasket().getProducts();
-            for(Product product:userProducts ) {
+            for (Product product : userProducts) {
                 System.out.println(product);
             }
         }
 
         System.out.println(" Товары после покупки(остаток)");
-        for (Category category : Categorys){
+        for (Category category : Categorys) {
             System.out.println(category.getName());
             ArrayList<Product> products = category.getProducts();
-            for(Product product:products ) {
+            for (Product product : products) {
                 System.out.println(product);
             }
         }
