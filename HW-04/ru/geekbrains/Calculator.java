@@ -1,5 +1,5 @@
-// package org.example;
 
+// package org.example;
 import java.util.List;
 
 public class Calculator {
@@ -29,16 +29,33 @@ public class Calculator {
         return result;
     }
 
-    public String transfBin(String something) {
+    public <T> String transfBinNum(T something) {
+        int counter = 0;
         String res1 = "";
-
-        if (Character.isLetter(something.charAt(something.length() - 1))) {
-            something = (something).substring(0, (something.length() - 1));
+        Object number = something;
+        Integer first = 0;
+        Double second = 0.;
+        if (something instanceof Double) {
+            Double numberDou = (Double) number;
+            first = numberDou.intValue();
+            second = numberDou % 1;
         }
+        if (something instanceof Integer) {
+            Integer numberInt = (Integer) number;
+            first = numberInt.intValue();
+        }
+        if (something instanceof Float) {
+            Float numberFloat = (Float) number;
+            first = numberFloat.intValue();
+            second = Double.valueOf(numberFloat % 1);
+        }
+        if (something instanceof String) {
+            Double numStr = Double.parseDouble((String) number);
+            first = numStr.intValue();
+            second = numStr % 1;
+        }
+        if(first == 0 && second == 0.){return " Число равно 0 или задан невалидный формат";}
         StringBuilder res = new StringBuilder();
-        Double numAll = Double.parseDouble(something);
-        Integer first = numAll.intValue();
-
         while (first > 0) {
             int remainder = (first % 2);
             res.append(remainder);
@@ -47,17 +64,22 @@ public class Calculator {
         res = res.reverse();
         res1 = res.toString();
         StringBuilder res2 = new StringBuilder();
-        Double second = numAll%1.;
-        //System.out.println(second);
-        if ( second < 0.00001 ){return res1;}
-        while (second > 0.0) {
-            second *= 2.;
-            //System.out.println( second);
-            int remainder = 0;
-            if (second.intValue() >= 1){remainder = 1;}
-            res2.append(remainder);
-            second = second % 1;
-            if(second <= 0.0001){break;}
+        if (second < 0.00001) {
+            return res1;
+        } else {
+            while (second > 0.0 && counter <= 15) {
+                if (second <= 0.00001) {
+                    break;
+                }
+                second *= 2.;
+                int remainder = 0;
+                if (second.intValue() >= 1) {
+                    remainder = 1;
+                }
+                res2.append(remainder);
+                second = second % 1;
+                counter++;
+            }
         }
         String resAll = res1 + "." + res2.toString();
         return resAll;

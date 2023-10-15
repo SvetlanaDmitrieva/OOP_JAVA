@@ -24,9 +24,10 @@ public class HW04 {
         System.out.println(calcutalor.sum(new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8))));
         System.out.println(calcutalor.multipl(new ArrayList<>(Arrays.asList( 3, 4, 5, 6 ))));
         System.out.println(calcutalor.div(new ArrayList<>(Arrays.asList( 120, 2, 3, 4 ))));
-        System.out.println(calcutalor.transfBin("11" ));
-        System.out.println(calcutalor.transfBin("21.25" ));
-        System.out.println(calcutalor.transfBin("15.87f"));
-
+        System.out.println(calcutalor.transfBinNum(11L ));
+        System.out.println(calcutalor.transfBinNum(11 ));
+        System.out.println(calcutalor.transfBinNum(31.25F ));
+        System.out.println(calcutalor.transfBinNum("15.87f"));
+        System.out.println(calcutalor.transfBinNum(21.25 ));
     }
 }
