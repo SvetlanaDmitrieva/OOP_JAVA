@@ -17,7 +17,7 @@ public class ViewCalculator {
             String firstStr = prompt("Введите первое комплексное число: ", in);
             ConvertStrToComplNumber conStr01 = new ConvertStrToComplNumber(firstStr);
             ComplexNumber firstComp = conStr01.convert();
-            Calculable calculator = calculableFactory.create(firstComp);   //!!!!!
+            Calculable calculator = calculableFactory.create(firstComp);  
             while (true) {
                 cmd = prompt("Введите команду (*, +, -, /, =) : ", in); 
                 if ( !cmd.equals("=")){
